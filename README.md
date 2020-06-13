@@ -1,0 +1,2 @@
+# minmaxing-spil
+sjovt
