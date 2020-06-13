@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.l {
+            text-align: center;
+            border: 1px solid black;
+            max-width: 50px;
+            margin-left: 50%;
+            position: block;
+            padding: 10px;
+        }
+
+        div.r {
+            text-align: center;
+            border: 1px solid black;
+            max-width: 50px;
+            margin-right: 50%;
+        }
+    </style>
+</head>
+
+<body style="margin: 1%;">
+    <div id="setup">
+        <input type="number" id="dif" placeholder="Difficulty">
+        <button onclick="startGame()">Start</button>
+    </div>
+    <div id="ingame" style="display: none;">
+        <canvas id="canvas" width="400" height="400" style="border: 1px solid black;"></canvas>
+        <br>
+        Du vil gerne have nummeret så <strong>lavt</strong> som muligt. 
+        <p id="meannumber"></p>
+
+        Spil: jeg vil gå til denne side (l for venste, r for højre): <input type="text" id="in"> <button onclick="play()">Ok</button>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
