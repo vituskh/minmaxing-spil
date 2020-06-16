@@ -1,2 +1,1 @@
 # minmaxing-spil
-sjovt

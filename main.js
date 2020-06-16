@@ -1,3 +1,14 @@
+
+/*-------------------------------------------
+	TODO
+
+	Nogle gange "crasher" det, den går til setup skærmen, selvom at det er første gang. 
+		Kan ikke reproducere det.
+	
+--------------------------------------------*/
+
+
+
 /*-------------------------------------------
 	SETUP
 --------------------------------------------*/
@@ -51,6 +62,7 @@ function updateCanvas(px, py, i, localTree, RorL) {
 		ctx.clearRect(0, 0, c.width, c.height)
 		document.getElementById("setup").style.display = "none"
 		document.getElementById("ingame").style.display = "block"
+		document.getElementById("canvas").style.display = "block"
 		updateCanvas(c.width / 2, 0, i + 1, tree.left, "l")
 		updateCanvas(c.width / 2, 0, i + 1, tree.right, "r")
 	} else {
@@ -154,19 +166,19 @@ function goToSide(side, localTree) {
 		if (side == "r") {
 			localTree.right.chosen = 1
 			if(localTree.right.number <= meannumber) {
-				alert("Du vandt!")
+				alert("Du vandt! (det endte med et " + localTree.right.number + ", og det skulle være under " + meannumber + ")")
 				won = true
 			} else {
-				alert("Du tabte!")
+				alert("Du tabte! (det endte med et " + localTree.right.number + ", og det skulle være under " + meannumber + ")")
 				won = true
 			}
 		} else {
 			localTree.left.chosen = 1
 			if(localTree.left.number <= meannumber) {
-				alert("Du vandt!")
+				alert("Du vandt! (det endte med et " + localTree.left.number + ", og det skulle være under " + meannumber + ")")
 				won = true
 			} else {
-				alert("Du tabte!")
+				alert("Du tabte! (det endte med et " + localTree.left.number + ", og det skulle være under " + meannumber + ")")
 				won = true
 			}
 		}
@@ -220,11 +232,20 @@ function play() {
 	document.getElementById("in").value = ""
 	if(won) {
 		document.getElementById("ingame").style.display = "none"
-		document.getElementById("setup").style.display = "block"
-		console.log("dafuc?")
+		document.getElementById("restart").style.display = "block"
 	} else {
 		ai()
 	}
+	if(won) { // igen fordi hvis aien er den sidste
+		document.getElementById("ingame").style.display = "none"
+		document.getElementById("restart").style.display = "block"
+	}
+}
+
+function restart() {
+	document.getElementById("setup").style.display = "block"
+	document.getElementById("restart").style.display = "none"
+	document.getElementById("canvas").style.display = "none"
 }
 
 function ai() {
