@@ -2,9 +2,7 @@
 /*-------------------------------------------
 	TODO
 
-	Nogle gange "crasher" det, den går til setup skærmen, selvom at det er første gang. 
-		Kan ikke reproducere det.
-	
+	Er der flere bugs?
 --------------------------------------------*/
 
 
@@ -47,7 +45,8 @@ var tree = { //placeholder hvis noget går galt
 			chosen: 1
 		},
 		chosen: 1
-	}
+	},
+	chosen: 1
 }
 
 
@@ -133,11 +132,11 @@ function gennemsnit(arr) {
 }
 
 function getActualNodeValue(minormax, localTree) {
-	console.log(localTree.number, localTree)
+	//console.log(localTree.number, localTree)
 	if(typeof localTree.number != "undefined") {
 		return localTree.number
 	} else if (typeof localTree.right.number != "undefined" || typeof localTree.left.number != "undefined") {
-		console.log("hmm it goes to it")
+		//console.log("hmm it goes to it")
 		if (minormax == "min") {
 			return Math.min(localTree.right.number, localTree.left.number)
 		} else {
@@ -163,6 +162,7 @@ function returnTreePoint(localTree) {
 function goToSide(side, localTree) {
 	if (typeof localTree.right.number != "undefined" || typeof localTree.left.number != "undefined") /*Hvis vi er på en node hvor der kommer talnodes under, så skal vi huske at logge det*/ {
 		//win
+		console.trace("won")
 		if (side == "r") {
 			localTree.right.chosen = 1
 			if(localTree.right.number <= meannumber) {
@@ -220,6 +220,7 @@ function fullyGoToSide(side) {
 
 function startGame() {
 	tree = returnNewTree(document.getElementById('dif').value)
+	won = false
 	updateCanvas(0,0,1, undefined, undefined)
 	meannumber = Math.round(gennemsnit(listOfAllNumbers))
 
