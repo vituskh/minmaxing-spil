@@ -205,7 +205,7 @@ function goToSide(side, localTree) {
 	}
 }
 function returnNewTree(levels) {
-	if (levels == 0) {var thisnumber = randomInt(1, 10); listOfAllNumbers.push(thisnumber); return { number: thisnumber, chosen: 0 };}
+	if (levels == 0) {var thisnumber = randomInt(1, 20); listOfAllNumbers.push(thisnumber); return { number: thisnumber, chosen: 0 };}
 	return { left: returnNewTree(levels - 1), right: returnNewTree(levels - 1), chosen: 0 }
 }
 
@@ -222,7 +222,7 @@ function startGame() {
 	tree = returnNewTree(document.getElementById('dif').value)
 	won = false
 	updateCanvas(0,0,1, undefined, undefined)
-	meannumber = Math.round(gennemsnit(listOfAllNumbers))
+	meannumber = Math.floor(gennemsnit(listOfAllNumbers))
 
 	document.getElementById("meannumber").innerHTML = "For at du vinder skal det være <strong>" + meannumber + "</strong> eller under"
 }
