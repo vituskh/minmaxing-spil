@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Minmaxing spil</title>
     <style>
         div.l {
             text-align: center;
@@ -22,12 +22,13 @@
             margin-right: 50%;
         }
     </style>
+    <script src="https://vitusverden.github.io/vitusresources/script.js"></script> <!--Vitus's navbar & dark theme osv-->
 </head>
 
 <body style="margin: 1%;">
     <div id="setup">
-        <input type="number" id="dif" placeholder="Difficulty">
-        <button onclick="startGame()">Start</button>
+        <input class="input" type="number" id="dif" placeholder="Difficulty">
+        <button class="button" onclick="startGame()">Start</button>
     </div>
     <canvas id="canvas" width="400" height="400" style="border: 1px solid black; display: none;"></canvas>
     <div id="ingame" style="display: none;">

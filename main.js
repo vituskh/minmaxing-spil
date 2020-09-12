@@ -260,3 +260,7 @@ function ai() {
 
 
 
+window.onload = (event) => {
+	changetheme("light")
+	document.getElementById("themeknap").remove()
+}
